@@ -1,0 +1,8 @@
+[14/Dec/2025:01:54:37 +0000] 404 - POST http localhost "/phpmyadmin/index.php?route=/" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[14/Dec/2025:01:58:00 +0000] 404 - GET http localhost "/phpmyadmin/" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[14/Dec/2025:02:44:26 +0000] 404 - GET http localhost "/phpmyadmin/" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[14/Dec/2025:02:44:45 +0000] 200 - GET http localhost "/" [Client 172.20.0.1] [Length 568] [Gzip 1.86] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[14/Dec/2025:04:06:16 +0000] 404 - GET http localhost "/phpmyadmin/" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[14/Dec/2025:04:06:47 +0000] 404 - GET http localhost "/phpmyadmin/" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[17/Dec/2025:06:41:02 +0000] 404 - GET http apaajadah.net "/main/login.php" [Client 172.20.0.1] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" "-"
+[17/Dec/2025:06:41:02 +0000] 400 - GET http apaajadah.net "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"
