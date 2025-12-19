@@ -7,29 +7,33 @@ if(isset($_SESSION["is_login"])){
 }
 
 $pesan ="";
-unset($_SESSION["pesan"]);
 if(isset($_POST['sigin'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email    = $_POST['email'];
     
-    try{
-    $daftar = "INSERT INTO users (username, password, email) VALUES
-    ('$username', '$password', '$email')";
+      try {
+        // PREPARED STATEMENT
+        $stmt = $db->prepare(
+            "INSERT INTO users (username, password, email) 
+             VALUES (?, ?, ?)"
+        );
 
-    if($db->query("$daftar")){
-        $pesan = "daftar berhasil , silahkan log in";
+        $stmt->bind_param("sss", $username, $password, $email);
+        $stmt->execute();
+
+        $pesan = "daftar berhasil, silahkan log in";
         header("location: ../main/sigin.php");
-    }else{
-        $pesan = "daftar gagal ";
+        $_SESSION["pesan"] = $pesan;
+        exit;
+
+    } catch (mysqli_sql_exception $e) {
+        $pesan = "Username atau email sudah di gunakan";
+        $_SESSION["pesan"] = $pesan;
         header("location: ../main/sigin.php");
+        exit;
     }
-    }catch(mysqli_sql_exception){
-        $pesan ="Username atau email sudah di gunakan";
-        header("location: ../main/sigin.php");
-    }$db->close();
-
     
 }
-$_SESSION["pesan"] = $pesan;
+
 ?>

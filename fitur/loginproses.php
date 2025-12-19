@@ -12,25 +12,35 @@ if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $periksa = "SELECT * FROM users WHERE 
-    username='$username' AND password='$password'";
+    $stmt = $db->prepare(
+        "SELECT id, username, password 
+         FROM users 
+         WHERE username = ?"
+    );
 
-    $hasil = $db->query($periksa);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
 
-    if($hasil->num_rows > 0){
-        $data = $hasil->fetch_assoc();
-        $_SESSION["username"] = $data["username"];
-        $_SESSION["id_user"] = $data["id"];
-        $_SESSION["is_login"] = true ;
-        unset($_SESSION["pesan"]);
-        header("Location: /main/dashboard.php");
-        exit;
+    $result = $stmt->get_result();
 
-    }else{
-        $_SESSION["pesan"] = "Username atau password salah";
-        header("Location: /main/login.php");
-        exit;
+    if ($result->num_rows === 1) {
+        $data = $result->fetch_assoc();
+
+        
+        if ($password === $data['password']) {
+            $_SESSION["id_user"] = $data["id"];
+            $_SESSION["username"] = $data["username"];
+            $_SESSION["is_login"] = true;
+
+            unset($_SESSION["pesan"]);
+            header("Location: /main/dashboard.php");
+            exit;
+        }
     }
+
+    $_SESSION["pesan"] = "Username atau password salah";
+    header("Location: /main/login.php");
+    exit;
     $db->close();
 }
 
