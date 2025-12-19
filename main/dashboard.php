@@ -66,7 +66,18 @@ $result = mysqli_query($db, $query);
         <td><?= $row['diskon'] ?></td>
         <td><?= $row['link'] ?></td>
     </tr>
-    <?php endwhile; ?>
+    <?php endwhile; ?><br>
 </table>
+    <script>/*  ini percobaan timer nya
+setInterval(() => {
+    fetch('/fitur/timerlink.php', { method: 'POST' })
+        .then(res => res.text())
+        .then(txt => console.log(txt));
+}, 30000); // 5 menit
+</script>
+    <form action="/fitur/tesbanding.php" method="post">
+        <button type="submit" name="coba">coba </button><br>
+    </form>
+
 </body>
 </html>
