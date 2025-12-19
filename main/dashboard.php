@@ -41,7 +41,7 @@ $result = mysqli_query($db, $query);
     <header>
         <h3>Dashboard</h3>
         <a href="index.php">Home</a>
-        <a href="login.php">Dasboard</a>
+        <a href="/fitur/loginproses.php">Dasboard</a>
     </header>
     <h1>Selamat datang <?= $_SESSION["username"] ?></h1>
     <form action="dashboard.php" method="POST">

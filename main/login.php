@@ -1,35 +1,7 @@
 <?php
 session_start();
-include __DIR__ . '/../service/database.php';
-$pesan = "";
-
-if(isset($_SESSION["is_login"]) && isset($_SESSION['id_user'])){
-    header("Location: /main/dashboard.php");
-    exit;
-}
-
-if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $periksa = "SELECT * FROM users WHERE 
-    username='$username' AND password='$password'";
-
-    $hasil = $db->query($periksa);
-
-    if($hasil->num_rows > 0){
-        $data = $hasil->fetch_assoc();
-        $_SESSION["username"] = $data["username"];
-        $_SESSION["id_user"] = $data["id"];
-        $_SESSION["is_login"] = true ;
-        header("location: ../main/dashboard.php");
-
-    }else{
-        $pesan = "username atau password salah";
-    }
-    $db->close();
-}
-
+$pesan = $_SESSION["pesan"] ?? "";
+unset($_SESSION["pesan"]);
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +20,7 @@ if(isset($_POST['login'])){
     </header>
     <h3>MASUK AKUN</h3>
     <i><?= $pesan ?></i>
-    <form action="login.php" method = "POST">
+    <form action="/fitur/loginproses.php" method = "POST">
         <input type="text" placeholder="username" name="username"/>
         <input type="password" placeholder="password" name="password"/>
         <button type="submit" name="login"> Daftar </button>
