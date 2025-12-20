@@ -1,11 +1,21 @@
 <?php
 include __DIR__ . '/../service/database.php';
+include __DIR__ . '/../service/mailer.php';
 if(isset($_POST['coba'])){
 // ambil semua data scrap
 $result = $db->query("
-    SELECT id_scrap, id_user, link, harga, diskon 
-    FROM scrap
+    SELECT 
+        s.id_scrap,
+        s.id_user,
+        u.email,
+        s.nama,
+        s.link,
+        s.harga,
+        s.diskon
+    FROM scrap s
+    JOIN users u ON s.id_user = u.id
 ");
+
 function updateScrap($db, $id_scrap, $harga_baru, $diskon_baru) {
     $stmt = $db->prepare("
         UPDATE scrap 
@@ -42,6 +52,8 @@ while ($row = $result->fetch_assoc()) {
     $link = $row['link'];
     $harga_lama = $row['harga'];
     $diskon_lama = $row['diskon'];
+    $produk = $row['nama'];
+    $gmail = $row['email'];
 
     // rapikan link
     if (!preg_match('/^https?:\/\//', $link)) {
@@ -82,6 +94,7 @@ while ($row = $result->fetch_assoc()) {
     if ($harga_baru < $harga_lama || $diskon_baru > $diskon_lama) {
     insertHistory($db,$id_scrap,$harga_lama,$diskon_lama,$harga_baru,$diskon_baru);
     updateScrap($db,$id_scrap,$harga_baru,$diskon_baru);
+    sendDiskonMail($gmail,$produk,$harga_baru,$diskon_baru,$link);
     echo "ada diskon<br>";
     }else{
         echo "tidak ada perubahan<br>";
