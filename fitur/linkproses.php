@@ -28,7 +28,7 @@ $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($code !== 200) {
-    die("Gagal: HTTP " . $code);
+    die("Gagal: HTTP " . $code . "<br>tolong gunakan kurodm.store");
 }
 
  return json_decode($response, true);

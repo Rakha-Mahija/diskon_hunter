@@ -20,6 +20,14 @@ if(isset($_SESSION["pesan"])){
     $pesan = null;
 }
 
+if(isset($_POST['logout'])){
+    session_unset();
+    session_destroy();
+    header('location: login.php');
+
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +48,11 @@ if(isset($_SESSION["pesan"])){
             <div class="nav-wrapper">
                 <h1 class="logo">Diskon Hunter</h1>
                 <nav class="nav-menu">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#notification" class="nav-link">Notification</a>
-                    <a href="#contacts" class="nav-link">Contacts</a>
+                    <a href="/main/index.php" class="nav-link active">Home</a>
+                    <a href="/main/dashboard.php" class="nav-link">Notification</a>
+                    <form action="index.php" method="POST">
+                    <button type="submit" name="logout" class="nav-link">Log out </button><br>
+                    </form>
                 </nav>
             </div>
         </div>
@@ -55,11 +65,13 @@ if(isset($_SESSION["pesan"])){
                 <div class="hero-text">
                     <h2 class="hero-title">FIND THE BEST DEALS THAT MATCH YOUR NEEDS</h2>
                     <p class="hero-description">Discover curated discounts from top brands and start saving effortlessly</p>
-                    
+                    <form action="/fitur/linkproses.php" method='post'>
                     <div class="search-bar">
                         <span class="search-icon"></span>
-                        <input type="text" placeholder="Search with url products..." class="search-input">
+                        <input type="text" placeholder="Search with url products..." class="search-input" name="link">
+                        <button type="submit" hidden></button>
                     </div>
+                    </form>
 
                     <div class="stats">
                         <div class="stat-item">
@@ -109,23 +121,8 @@ if(isset($_SESSION["pesan"])){
             <p class="steps-description">
                 Track prices effortlessly.<br>
                 Just paste the link to the product you want, and we'll notify<br>
-                you instantly when it's on sale at your desired deal.
+                you instantly when it's on sale at your desired deal.<br>
             </p>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h2 class="newsletter-title">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>
-                </div>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" class="newsletter-input">
-                    <button class="newsletter-button">Get Deal Alerts</button>
-                </div>
-            </div>
         </div>
     </section>
 

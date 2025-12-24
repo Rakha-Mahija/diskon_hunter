@@ -28,10 +28,10 @@ unset($_SESSION["pesan"]);
                     <h2 class="form-title">Welcome Back!</h2>
                     <p class="form-subtitle">Login to continue finding the best deals</p>
 
-                    <form class="auth-form" id="loginForm">
+                    <form class="auth-form" id="loginForm" action="/fitur/loginproses.php" method = "POST">
                         <div class="form-group">
-                            <label for="loginEmail" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-input" placeholder="Enter your Username" required>
                         </div>
 
                         <div class="form-group">
@@ -47,15 +47,9 @@ unset($_SESSION["pesan"]);
                             <a href="#forgot" class="forgot-link">Forgot Password?</a>
                         </div>
 
-                        <button type="submit" class="btn-primary">Login</button>
+                        <button type="submit" class="btn-primary" name="login">Login</button>
 
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-
-                        <button type="button" class="btn-google">
-                            <img src="images/ggl.png" alt="Google" class="google-icon"> Continue with Google
-                        </button>
+                        
                     </form>
                     
                     <p class="switch-form">

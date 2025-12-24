@@ -34,12 +34,14 @@ if(isset($_POST['login'])){
 
             unset($_SESSION["pesan"]);
             header("Location: /main/dashboard.php");
+            echo "if";
             exit;
         }
     }
 
     $_SESSION["pesan"] = "Username atau password salah";
     header("Location: /main/login.php");
+    echo "else";
     exit;
     $db->close();
 }

@@ -27,7 +27,7 @@ unset($_SESSION["pesan"]);
                     <h2 class="form-title">Create Account</h2>
                     <p class="form-subtitle">Sign up to start saving with the best deals</p>
 
-                    <form class="auth-form" id="signupForm">
+                    <form class="auth-form" id="signupForm" action="/fitur/siginproses.php" method = "POST">
                         <div class="form-group">
                             <label for="signupName" class="form-label">Full Name</label>
                             <input type="text" name="username" class="form-input" placeholder="Enter your full name" required>
@@ -43,27 +43,7 @@ unset($_SESSION["pesan"]);
                             <input type="password" name="password" class="form-input" placeholder="Create a password" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" name="confirmPassword" class="form-input" placeholder="Confirm your password"required>
-                        </div>
-
-                        <label class="checkbox-label terms-label">
-                            <input type="checkbox" class="checkbox-input" id="termsCheckbox" required>
-                            <span>I agree to the <a href="#terms" class="terms-link">Terms & Conditions</a></span>
-                        </label>
-
-                        <button type="submit" class="btn-primary">Sign Up</button>
-
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-
-                        <button type="button" class="btn-google">
-                            <img src="images/ggl.png" alt="Google" class="google-icon">
-                            Continue with Google
-                        </button>
-                    </form>
+                        <button type="submit" class="btn-primary" name="sigin">Sign Up</button>
 
                     <p class="switch-form">
                         Already have an account? 
