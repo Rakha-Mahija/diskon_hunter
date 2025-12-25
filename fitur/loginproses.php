@@ -33,7 +33,7 @@ if(isset($_POST['login'])){
             $_SESSION["is_login"] = true;
 
             unset($_SESSION["pesan"]);
-            header("Location: /main/index.php");
+            header("Location: /main/dashboard.php");
             echo "if";
             exit;
         }
