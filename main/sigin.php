@@ -1,7 +1,10 @@
 <?php
 session_start();
-$pesan = $_SESSION["pesan"] ?? "";
-unset($_SESSION["pesan"]);
+
+if (isset($_SESSION['pesan'])) {
+    echo "<script>alert('{$_SESSION['pesan']}')</script>";
+    unset($_SESSION['pesan']);
+}
 ?>
 
 <!DOCTYPE html>

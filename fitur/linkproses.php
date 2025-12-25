@@ -66,7 +66,7 @@ try{
     
 $_SESSION["pesan"] = $pesan;
 if($validasi){
-    header("Location: ../main/dashboard.php");
+    header("Location: ../main/Dashboard/produk.php");
 }
 
 exit;
