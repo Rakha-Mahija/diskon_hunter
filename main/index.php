@@ -13,11 +13,9 @@ if(isset($_SESSION["hasil"])){
     $hasil = null;
 }
 
-if(isset($_SESSION["pesan"])){
-    $pesan = $_SESSION["pesan"];
-    unset($_SESSION["pesan"]); 
-} else {
-    $pesan = null;
+if (isset($_SESSION['pesan'])) {
+    echo "<script>alert('{$_SESSION['pesan']}')</script>";
+    unset($_SESSION['pesan']);
 }
 
 if(isset($_POST['logout'])){
@@ -49,9 +47,11 @@ if(isset($_POST['logout'])){
                 <h1 class="logo">Diskon Hunter</h1>
                 <nav class="nav-menu">
                     <a href="/main/index.php" class="nav-link active">Home</a>
-                    <a href="/main/dashboard.php" class="nav-link">Notification</a>
+                    <a href="/main/Dashboard/produk.php" class="nav-link">Dahsboard</a>
                     <form action="index.php" method="POST">
-                    <button type="submit" name="logout" class="nav-link">Log out </button><br>
+                    <button type="submit" name="logout" style="all: unset; cursor: pointer;">
+                    <p class="nav-link">Log out</p>
+                    </button>
                     </form>
                 </nav>
             </div>

@@ -15,12 +15,12 @@ function sendDiskonMail($to, $namaProduk, $hargaBaru, $diskonBaru, $linkes) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = '';
-        $mail->Password   = '';
+        $mail->Username   = 'diskonhunter0@gmail.com';
+        $mail->Password   = 'tftvtltumlmhfmtc';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        $mail->setFrom('', 'Diskon Hunter');
+        $mail->setFrom('diskonhunter0@gmail.com', 'Diskon Hunter');
         $mail->addAddress($to);
 
         $mail->isHTML(true);
