@@ -9,7 +9,7 @@ unset($_SESSION["pesan"]);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Diskon Hunter</title>
+    <title>Forgot - Diskon Hunter</title>
     <link rel="stylesheet" href="CSS/Login-Signup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,36 +26,22 @@ unset($_SESSION["pesan"]);
                     </div>
                     
                     <h2 class="form-title">Welcome Back!</h2>
-                    <p class="form-subtitle">Login to continue finding the best deals</p>
+                    <p class="form-subtitle">Submit your Token</p>
 
-                    <form class="auth-form" id="loginForm" action="/fitur/loginproses.php" method = "POST">
+                    <form class="auth-form" id="loginForm" action="/fitur/forgetproses2.php" method = "POST">
+
                         <div class="form-group">
-                            <label for="loginUsername" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-input" placeholder="Enter your Username" required>
+                            <label for="signupEmail" class="form-label">Token</label>
+                            <input type="text" name="token" class="form-input" placeholder="Enter your token" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="loginPassword" class="form-label">Password</label>
+                            <label for="signupEmail" class="form-label">password</label>
                             <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
                         </div>
 
-                        <div class="form-options">
-                            <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox-input">
-                                <span>Remember me</span>
-                            </label>
-                            <a href="forgot.php" class="forgot-link">Forgot Password?</a>
-                        </div>
-
-                        <button type="submit" class="btn-primary" name="login">Login</button>
-
-                        
+                        <button type="submit" class="btn-primary">Enter</button>
                     </form>
-                    
-                    <p class="switch-form">
-                        Don't have an account? 
-                        <a href="sigin.php" class="switch-link">Sign Up</a>
-                    </p>
                 </div>
             </div>
 
