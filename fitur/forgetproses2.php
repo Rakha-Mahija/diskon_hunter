@@ -9,6 +9,10 @@ $q = $db->query("SELECT * FROM password_resets WHERE token='$token'");
 $data = $q->fetch_assoc();
 
 if (!$data) {
+    echo "<script>
+            alert('token tidak valid!');
+            window.location.href = '/main/change_pass.php';
+        </script>";
     die("Token tidak valid");
 }
 

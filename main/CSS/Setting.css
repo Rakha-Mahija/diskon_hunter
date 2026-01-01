@@ -1,0 +1,271 @@
+/* =========================
+   Diskon Hunter Settings UI
+   Font: Poppins
+   Colors: #000000, #F2F0F1, #E4FCFF
+   ========================= */
+
+:root{
+  --black:#000000;
+  --bg:#F2F0F1;
+  --mint:#E4FCFF;
+  --white:#ffffff;
+  --text:#000000;
+  --muted: rgba(0,0,0,0.65);
+  --border: rgba(0,0,0,0.12);
+  --shadow: 0 18px 45px rgba(0,0,0,0.10);
+  --radius: 22px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* biar card lebih dekat ke tepi layar */
+  padding: 22px;
+}
+
+/* ONE BIG CARD */
+.settings-card{
+  width: min(1320px, 96vw);
+  min-height: 640px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  overflow:hidden;
+  border: 1px solid var(--border);
+}
+
+/* LEFT MENU */
+.settings-menu{
+  padding: 34px 28px;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+}
+
+.settings-title{
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.menu-label{
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.55);
+  margin: 18px 0 10px;
+}
+
+.menu-item{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+
+  font-family:"Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 14px 14px;
+  margin-bottom: 10px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor:pointer;
+
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.menu-item:hover{
+  background: rgba(0,0,0,0.04);
+  transform: translateY(-1px);
+}
+
+.menu-item.active{
+  background: var(--black);
+  color: var(--white);
+}
+
+.menu-item.danger{
+  color: #b00020;
+}
+
+.menu-item.danger.active{
+  background: var(--black);
+  color: var(--white);
+}
+
+/* RIGHT CONTENT */
+.settings-content{
+  padding: 34px 34px;
+  background: var(--white);
+}
+
+.panel{
+  display:none;
+}
+.panel.show{
+  display:block;
+}
+
+.panel-title{
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+/* ===== YOUR PROFILE ===== */
+.profile-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 14px;
+}
+
+.profile-table tr {
+  background: #f4f4f4;
+  border-radius: 12px;
+}
+
+.profile-table td {
+  padding: 16px 18px;
+  font-size: 15px;
+}
+
+.profile-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.profile-value {
+  text-align: right;
+  font-weight: 700;
+  color: #000;
+}
+
+/* FORM */
+.form{
+  width: min(520px, 100%);
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.field label{
+  display:block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.field input{
+  width:100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.20);
+  outline: none;
+  font-family:"Poppins", sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+.field input:focus{
+  border-color: rgba(0,0,0,0.45);
+  box-shadow: 0 0 0 5px var(--mint);
+}
+
+/* CONFIRM BOX */
+.confirm-box{
+  width: min(560px, 100%);
+  margin-top: 6px;
+  padding: 18px 0;
+}
+
+.confirm-question{
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.confirm-desc{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.confirm-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+.btn{
+  border: none;
+  cursor:pointer;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-family:"Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  transition: transform .12s ease, filter .12s ease;
+}
+
+.btn:active{ transform: scale(0.98); }
+
+.btn.primary{
+  width: min(520px, 100%);
+  background: var(--black);
+  color: var(--white);
+  margin-top: 10px;
+}
+
+.btn.danger{
+  background: #b00020;
+  color: var(--white);
+  min-width: 160px;
+}
+
+.btn:hover{
+  filter: brightness(0.96);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px){
+  .settings-card{
+    grid-template-columns: 1fr;
+  }
+  .settings-menu{
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

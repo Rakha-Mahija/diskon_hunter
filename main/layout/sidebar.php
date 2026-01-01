@@ -7,6 +7,7 @@ if(isset($_POST['logout'])){
 
     exit;
 }
+unset($_SESSION['pesan']);
 ?>
 
 <div class="sidebar bg-dark text-white p-3 d-flex flex-column">
