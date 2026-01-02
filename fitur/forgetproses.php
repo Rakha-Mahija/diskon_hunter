@@ -9,25 +9,35 @@ require __DIR__ . '/../PHPMailer/src/SMTP.php';
 
 $email = $_POST['email'];
 
-$q = $db->query("SELECT id FROM users WHERE email='$email'");
-$user = $q->fetch_assoc();
+$stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
 if (!$user) {
+    echo "<script>
+            alert('Email tidak di temukan!');
+            window.location.href = '/main/forgot.php';
+        </script>";
     die("Email tidak ditemukan");
 }
 
 $user_id = $user['id'];
 
-$db->query("DELETE FROM password_resets WHERE user_id='$user_id'");
+$stmt = $db->prepare("DELETE FROM password_resets WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
 
 $token = bin2hex(random_bytes(32));
-$expired = date("Y-m-d H:i:s", strtotime("+15 minutes"));
+$expired = date("Y-m-d H:i:s", strtotime("+1 minutes"));
 
-$db->query("
+$stmt = $db->prepare("
     INSERT INTO password_resets (user_id, token, expired)
-    VALUES ('$user_id', '$token', '$expired')
+    VALUES (?, ?, ?)
 ");
-
+$stmt->bind_param("iss", $user_id, $token, $expired);
+$stmt->execute();
 // kirim pakai PHPMailer
 
 $mail = new PHPMailer(true);

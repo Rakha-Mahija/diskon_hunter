@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/main/CSS/bootstrap.min.css">
+    <script src="/main/js/bootstrap.bundle.min.js"></script>
 
     <style>
         html, body {

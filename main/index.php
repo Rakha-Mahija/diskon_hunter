@@ -142,35 +142,10 @@ if(isset($_POST['logout'])){
                         <a href="#" class="social-icon"><img src="images/IG.png" alt="Instagram"></a>
                     </div>
                 </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-heading">HELP</h4>
-                    <ul class="footer-links">
-                        <li><a href="#customer-support">Customer Support</a></li>
-                        <li><a href="#terms">Terms & Conditions</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-heading">COMPANY</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#features">Features</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-heading">FAQ</h4>
-                    <ul class="footer-links">
-                        <li><a href="#account">Account</a></li>
-                        <li><a href="#orders">Orders</a></li>
-                    </ul>
-                </div>
             </div>
 
             <div class="footer-bottom">
-                <p>Diskon Hunter © 2024-2025 All Rights Reserved</p>
+                <p>Diskon Hunter © 2024-2026 All Rights Reserved</p>
             </div>
         </div>
     </footer>

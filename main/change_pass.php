@@ -36,8 +36,8 @@ unset($_SESSION["pesan"]);
                         </div>
 
                         <div class="form-group">
-                            <label for="signupEmail" class="form-label">password</label>
-                            <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
+                            <label for="signupEmail" class="form-label">New Password</label>
+                            <input type="password" name="password" class="form-input" placeholder="Enter your New password" required>
                         </div>
 
                         <button type="submit" class="btn-primary">Enter</button>

@@ -8,10 +8,9 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST ['email'];
 
-$periksa = "UPDATE users
-SET username = '$username', password ='$password' , email = '$email' WHERE id = '$id' ";
-
-$db->query($periksa);
+$stmt = $db->prepare("UPDATE users SET username = ?, password = ?, email = ? WHERE id = ?");
+$stmt->bind_param("sssi", $username, $password, $email, $id);
+$stmt->execute();
 echo "<script>
             alert('berhasil edit!');
             window.location.href = '/../main/Dashboard/profile.php';
