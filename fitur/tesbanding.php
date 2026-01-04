@@ -1,7 +1,14 @@
 <?php
 include __DIR__ . '/../service/database.php';
 include __DIR__ . '/../service/mailer.php';
-if(isset($_POST['coba'])){
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    exit('Forbidden');
+}
+
+//if(isset($_POST['coba']))
+$isCli = (php_sapi_name() === 'cli');
+if ($isCli || isset($_POST['coba'])){
 // ambil semua data scrap
 $result = $db->query("
     SELECT 

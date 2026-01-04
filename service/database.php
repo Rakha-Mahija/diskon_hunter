@@ -1,16 +1,14 @@
 <?php
-$hostname = "mysql_db";
-$username = "root";
-$password = "root";
-$database_name = "diskon_hunter";
-
-$db = mysqli_connect($hostname , $username , $password , $database_name);
+$db = mysqli_connect(
+    getenv('DB_HOST'),
+    getenv('DB_USER'),
+    getenv('DB_PASS'),
+    getenv('DB_NAME')
+);
 
 if($db->connect_error){
     echo "koneksi gagal";
     die("error");
 }
-
-
 
 ?>
